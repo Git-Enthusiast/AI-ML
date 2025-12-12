@@ -185,11 +185,4 @@ If this repo helps you, please give it a **star ⭐** on GitHub — it motivates
 
 ---
 
-If you want, I can also generate:
 
-* `Roadmap-6-Month.md`
-* `Projects-Ideas.md`
-* `Internship-Checklist.md`
-* Full folder structure setup
-
-Just tell me! 🚀
