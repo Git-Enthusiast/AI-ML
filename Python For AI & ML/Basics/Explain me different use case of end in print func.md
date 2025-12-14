@@ -56,7 +56,7 @@ for i in range(5):
 
 This outputs: `0, 1, 2, 3, 4,`[^1]
 
-**Use Case 4: Custom Character Separators**
+**Use Case 4: To use any custom Character as 'end' value**
 
 Beyond spaces and commas, you can use any character or string as the `end` value. For example, using a dash separator creates visually distinct separations:[^6][^1]
 
