@@ -1,98 +1,224 @@
-# dir() in Python:
-# The dir() function is used to find out which names (variables, functions, classes, etc.) 
-# are defined in a module or in the current scope.
-# It returns a list of names in the current local scope or the attributes of the given object.
-# Here What is means by Current Local Scope :
-# let's take an example 
-print(dir())    # Will give all the functions, class, attributes present in this file
-print(dir())    # Will return only name as only name is present in the function 
-                # itself
-def demo():
-    name = "Rajan"
-    print(dir())    # Will return only name as only name is present in the function 
-                    # itself
-                    # it will return only ["name"]
-# Example: 
-import math
-print(dir(math))  # This will print all the attributes and methods of the math module
-# Output will include names like 'sin', 'cos', 'pi', etc.
-# Example Output:
-#['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 
-# 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'cbrt', 'ceil', 'comb', 'copysign', 
-# 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'exp2', 'expm1', 
-# 'fabs', 'factorial', 'floor', 'fma', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 
-# 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'lcm', 'ldexp', 
-# 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'nextafter', 'perm', 'pi', 
-# 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'sumprod', 'tan', 'tanh', 
-# 'tau', 'trunc', 'ulp']
+# ============================================================
+# Python `dir()` Function: Detailed Revision Guide
+# ============================================================
 
-# You can also use dir() without any arguments to list the names in the current local scope
-a = 10
-b = 20
+# The `dir()` function is a built-in Python function used to:
+# 1. List all names (variables, functions, classes, etc.) in the current local scope.
+# 2. List all attributes and methods of an object or module.
+# ------------------------------------------------------------
+
+# -------------------------
+# 1. Using dir() in Local Scope
+# -------------------------
+print("=== Example 1: dir() in current scope ===")
+# In the current scope, dir() lists all variables, functions, classes defined so far
+print(dir())  
+# Output: ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__']
+
+# Adding a variable and checking dir() again
+x = 10
+y = 20
 def my_function():
     pass
-print(dir())  # This will print ['a', 'b', 'my_function', ...]
-# Output will include 'a', 'b', 'my_function', etc.
 
-# Other Example:
-my_String = "Hello, World!"
-print(type(my_String))  # Output: <class 'str'>
-print(dir(my_String)) # This will print all the attributes and methods of the str class
-# Output : 
-# ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', 
-# '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', 
-# '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', 
-# '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', 
-# '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 
-# 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 
-# 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 
-# 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 
-# 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 
-# 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 
-# 'upper', 'zfill']
+print(dir())  
+# Output will now include 'x', 'y', 'my_function'
 
-# Some Other Examples:
-my_List = [1, 2, 3, 4, 5]
-print(dir(my_List))  # This will print all the attributes and methods of the list class
-# Output :
-# ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', 
-# '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', 
-# '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', 
-# '__le__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', 
-# '__reversed__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 
-# 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+# -------------------------
+# 2. Using dir() inside a Function
+# -------------------------
+def demo():
+    name = "Rajan"
+    print("Inside function, dir():", dir())
+    # Only names defined inside this function are shown
+    # Output: ['name']
 
-my_Dict = {'a': 1, 'b': 2, 'c': 3}
-print(dir(my_Dict))  # This will print all the attributes and methods of the dict class
-# Output :
-# ['__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', 
-# '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', 
-# '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__ne__', '__new__', 
-# '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 
-# 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+demo()
 
-my_Set = {1, 2, 3, 4, 5}
-print(dir(my_Set))  # This will print all the attributes and methods of the set class
-# Output:
-# ['__and__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', 
-#  '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', 
-#  '__hash__', '__iand__', '__init__', '__init_subclass__', '__ior__', '__isub__', '__iter__', 
-#  '__ixor__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__rand__', 
-#  '__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__rsub__', '__rxor__', '__setattr__', 
-#  '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__xor__', 'add', 'clear', 'copy', 
-#  'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 
-#  'isdisjoint', 'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 
-#  'symmetric_difference_update', 'union', 'update']
+# -------------------------
+# 3. Using dir() on Modules
+# -------------------------
+import math
 
-# Reloading Module in Python
-# let a module be "exampleModule.py"
-# which we import in this file now when we write " import exampleModule.py"
-# It loads module only once even let say if written 5 times same 
-# Statement in same code so, If we have to load same module multiple times we 
-# have to use use "importlib" syntax is below:
+print("=== Example 2: dir() on math module ===")
+print(dir(math))
+# This prints all attributes and methods of the math module, such as:
+# 'sin', 'cos', 'pi', 'e', 'sqrt', etc.
+
+# Another example with custom module:
+# Suppose you have example_2.py with functions and classes
+# import example_2
 # import importlib
-# importlib.reload(module name which we have import)
-# importlib.reload(module name which we have to import)
-# To get list of all accessible module from a file or scope
-# use print(help("modules"))
-print(help("modules"))
+# importlib.reload(example_2)  # Reloads the module if updated
+
+# -------------------------
+# 4. Using dir() on Built-in Data Types
+# -------------------------
+
+# --- String ---
+my_string = "Hello, World!"
+print("\nAttributes & methods of string:", dir(my_string))
+# Useful methods include: 'capitalize', 'count', 'find', 'replace', 'upper', 'lower', etc.
+
+# --- List ---
+my_list = [1, 2, 3, 4, 5]
+print("\nAttributes & methods of list:", dir(my_list))
+# Useful methods include: 'append', 'extend', 'insert', 'pop', 'remove', 'sort', 'reverse'
+
+# --- Dictionary ---
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+print("\nAttributes & methods of dict:", dir(my_dict))
+# Useful methods include: 'keys', 'values', 'items', 'get', 'update', 'pop', 'clear'
+
+# --- Set ---
+my_set = {1, 2, 3, 4, 5}
+print("\nAttributes & methods of set:", dir(my_set))
+# Useful methods include: 'add', 'remove', 'union', 'intersection', 'difference', 'update'
+
+# -------------------------
+# 5. Checking the Type of Object
+# -------------------------
+print("\n=== Example 3: Checking Type ===")
+print(type(my_string))  # <class 'str'>
+print(type(my_list))    # <class 'list'>
+print(type(my_dict))    # <class 'dict'>
+print(type(my_set))     # <class 'set'>
+
+# -------------------------
+# 6. Listing All Installed Modules
+# -------------------------
+print("\n=== Example 4: List all accessible modules ===")
+# Prints all modules accessible in your Python environment
+# This can be a long list
+# Uncomment below line if needed
+# print(help("modules"))
+
+# -------------------------
+# 7. Reloading a Module
+# ============================================================
+# Python Module Reloading: Detailed Revision Guide
+# ============================================================
+
+# In Python, when we import a module using `import module_name`, Python loads it **only once**.
+# This means that even if we write the same `import` statement multiple times in a file,
+# the module will not be reloaded. Python optimizes imports to avoid unnecessary loading.
+
+# Example:
+# Suppose we have a module named "example_2.py" with a simple function
+# example_2.py:
+# def greet():
+#     print("Hello from example_2!")
+
+# In another Python file, we import it:
+# import example_2
+# example_2.greet()   # Output: Hello from example_2!
+# import example_2    # This will NOT reload the module
+# example_2.greet()   # Output: Hello from example_2!
+
+# ------------------------------------------------------------
+# Problem:
+# If we edit example_2.py after importing it (e.g., change the function to print
+# "Hello again!"), Python will **not** pick up the changes automatically if we just
+# run `import example_2` again. It still uses the version that was loaded first.
+
+# ------------------------------------------------------------
+# Solution: Use `importlib.reload()`
+# Python provides the `importlib` module to reload a module at runtime.
+
+import importlib
+# Syntax:
+# importlib.reload(module_object)
+
+# Steps to reload a module:
+# 1. Import the module normally.
+# 2. Make changes in the module (edit the code).
+# 3. Use importlib.reload(module_object) to reload the updated module.
+
+# Example:
+# Step 1: Import the module
+# import example_2
+# example_2.greet()   # Output: Hello from example_2!
+
+# Step 2: Edit example_2.py (change function to print "Hello again!")
+
+# Step 3: Reload the module
+# importlib.reload(example_2)
+# example_2.greet()   # Output: Hello again!
+
+# Important Notes:
+# 1. You must pass the **module object**, not the module name as a string, to reload().
+#    Correct: importlib.reload(example_2)
+#    Incorrect: importlib.reload("example_2")   # Will raise an error
+
+# 2. Reloading is useful during development when you are frequently editing modules
+#    and want the changes to reflect immediately without restarting Python.
+
+# 3. Reloading does NOT reset variables in your current script that reference old objects
+#    from the module. Only the module itself is reloaded.
+
+# Example with custom module (simulated):
+# Suppose we have another module called "math_utils.py" with a function
+# def add(a, b):
+#     return a + b
+
+# In main.py:
+# import math_utils
+# print(math_utils.add(2, 3))  # Output: 5
+# # Edit math_utils.py to add a print statement inside add() function
+# importlib.reload(math_utils)
+# print(math_utils.add(2, 3))  # Output: will show the updated print statement + 5
+
+# ------------------------------------------------------------
+# Key Summary Points:
+# 1. Normal imports load modules **once** per session.
+# 2. Use `importlib.reload(module_object)` to reload a module after editing.
+# 3. Reload only affects the module itself, not variables already referencing objects.
+# 4. Reloading is mainly for **development/debugging purposes**.
+# 5. Always import `importlib` first before using reload.
+
+# ------------------------------------------------------------
+# Bonus Tip:
+# To see all currently loaded modules in Python, you can use:
+# import sys
+# print(sys.modules)  # This shows a dictionary of all loaded modules
+# The keys are module names, and the values are the module objects themselves.
+
+# ------------------------------------------------------------
+# Complete small working example:
+# Suppose example_2.py exists in the same folder:
+# example_2.py:
+# def greet():
+#     print("Hello from example_2!")
+
+import example_2  # Step 1: Import
+example_2.greet()  # Step 2: Call function, Output: Hello from example_2!
+
+# Step 3: Reload after editing example_2.py
+importlib.reload(example_2)
+example_2.greet()  # Output: Updated function after editing module
+
+
+
+# -------------------------
+# 8. Summary Notes for Revision
+# -------------------------
+# 1. dir(): Returns names in current scope or attributes of object.
+# 2. Useful inside functions to see local variables.
+# 3. Can inspect modules and objects like str, list, dict, set.
+# 4. Reload module using importlib if updated.
+# 5. Use help("modules") to explore installed modules.
+
+# -------------------------
+# 9. Bonus: dir() on Custom Class
+# -------------------------
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        return f"Hello, {self.name}!"
+
+person = Person("Rajan", 25)
+print("\nAttributes & methods of Person instance:", dir(person))
+# Shows '__init__', 'greet', '__str__', '__class__', '__dict__', etc.
