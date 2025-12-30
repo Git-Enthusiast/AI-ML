@@ -309,7 +309,7 @@ Use while loop when:
 """
 while → condition-based
 for   → sequence-based
-"""
+""" 
 
 print("\n========== END OF WHILE LOOP REVISION ==========")
 
